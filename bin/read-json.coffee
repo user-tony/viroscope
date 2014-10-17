@@ -6,6 +6,6 @@ readStdinJSON = (callback) ->
         if chunk != null
             chunks.push chunk
     process.stdin.on 'end', ->
-        callback JSON.parse chunks.join('')
+        callback JSON.parse(chunks.join(''))
 
 module.exports.readStdinJSON = readStdinJSON

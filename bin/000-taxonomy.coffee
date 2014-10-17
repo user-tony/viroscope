@@ -1,7 +1,7 @@
 #!/usr/bin/env coffee
 
-csv = require 'csv'
-
+csv = require 'fast-csv'
+# csv = require('csv-stream')
 levelNames = ['order', 'family', 'sub-family', 'genus', 'species']
 species = 4
 typeSpecies = 5
@@ -24,8 +24,8 @@ convert = (callback) ->
         unless level == species
             add root[levelName][name], row, level + 1
 
-    csv()
-        .from.stream(process.stdin)
+    csv
+        .fromStream(process.stdin)
         .on('record', (row, index) ->
             # Swap typeSpecies and species (cols 4 and 5)
             tmp = row[4]

@@ -11,7 +11,7 @@
                                         "links": [
                                             {
                                                 "title": "viralzone",
-                                                "url": "http://viralzone.expasy.org/all_by_species/178.html"
+                                                "url": "data/taxonomy.csv"
                                             }
                                         ]
                                     }
