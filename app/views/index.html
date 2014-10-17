@@ -37,7 +37,7 @@
         <div class="col-sm-2">
           <div ng-include="'partials/accordion'"></div>
 
-          <!-- 
+          <!--
               Why does this include cause the $scope.searchText variable
               in main.coffee to not get updated?  We have to include the
               search.html text here for some reason.
@@ -96,11 +96,10 @@
     <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/navbar.js"></script>
-    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
 </body>
 </html>
