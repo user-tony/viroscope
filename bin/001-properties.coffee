@@ -3,7 +3,7 @@
 fs = require 'fs'
 readStdinJSON = require('./read-json').readStdinJSON
 
-levelNames = ['order', 'family', 'sub-family', 'genus', 'species']
+levelNames = ['order', 'myoviridae', 'family', 'sub-family', 'genus', 'species']
 species = 4
 typeSpecies = 5
 
