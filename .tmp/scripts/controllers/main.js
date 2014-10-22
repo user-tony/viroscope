@@ -313,7 +313,7 @@
       this.root = null;
       this.selectedNode = null;
       width = 1050;
-      height = 350;
+      height = 800;
       this.force = d3.layout.force().size([width, height]).charge(-150).linkDistance(80).on('tick', this.tick);
       this.drag = this.force.drag().on('dragstart', this.dragstart).on('dragend', this.dragend);
       svg = d3.select('#viroscope').append('svg').attr('class', 'main-view').attr('width', width).attr('height', height).attr('width', '100%').attr('height', '85%').attr('viewBox', '0 0 ' + width + ' ' + height).attr('preserveAspectRatio', 'xMidYMid').attr('pointer-events', 'all').call(d3.behavior.zoom().on('zoom', this.rescale));

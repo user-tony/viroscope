@@ -271,7 +271,7 @@ class Viroscope
         @selectedNode = null
 
         width = 1050
-        height = 350
+        height = 800
 
         # aspect = width / height
         # chart = $ '#viroscope'

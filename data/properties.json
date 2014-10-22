@@ -1,11 +1,10 @@
 {
     "order": {
-        "Caudovirales": {
+        "留学": {
             "properties": {
-                "morphologyKeywords": "icosahedral head with tail"
             },
             "family": {
-                "Myoviridae": {
+                "签证": {
                     "properties": {
                         "genome": {
                             "ambisense": false,

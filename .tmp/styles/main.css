@@ -104,6 +104,10 @@ body {
   border: 1px solid #bbb;
 }
 
+.main-view:nth-of-type(2) {
+  display: none;
+}
+
 .sequence-title {
   font-family: courier;
   font-size: 12px;
