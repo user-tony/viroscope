@@ -3,8 +3,8 @@
 angular.module('viroscope-app')
   .controller 'NavbarCtrl', ($scope, $location) ->
     $scope.menu = [
-      title: 'About'
-      link: '/'
+      title: '千帆渡'
+      link: 'http://www.qianfandu.com'
     ]
 
     $scope.isActive = (route) ->
