@@ -324,11 +324,15 @@ class Viroscope
             @$scope.$apply()
 
     mouseOverNode: (d) =>
-        if d.name isnt 'root'
+        if d.name isnt '千帆渡'
             @selectedNode = d
             unless @$scope.infoNodeLocked
                 @$scope.infoNode = d
                 @$scope.$apply()
+
+    click: (d) =>
+      # d.fixed = true
+      @selectedNode = d
 
     tick: =>
         @link.attr('x1', (d) -> d.source.x)
@@ -410,7 +414,8 @@ class Viroscope
         # Update links.
         @link = @link.data(links)
         @link.exit().remove()
-        @link.enter().insert('line', '.node').attr('class', 'link')
+        @link_a = @link.enter().insert('line', '.node')
+        @link_a.attr('class', 'link')
 
         # Update nodes.
         @node = @node.data(nodes, (d) -> d.id).call(@drag)
@@ -420,12 +425,12 @@ class Viroscope
 
         nodeEnter.append('circle')
             .attr('r', 6)
-            # .on('click', @click)
+            .on('click', @click)
             .on('mouseover', @mouseOverNode)
             .on('mouseout', @mouseOffNode)
 
         nodeEnter.append('text')
-            .attr('dy', '1.5em')
+            .attr('dy', '2.5em')
             .text((d) ->
                 if d.name == 'Unassigned'
                     LEVELS[d.level] + ' not assigned'
@@ -456,7 +461,7 @@ convertToChildLists = (tree) ->
                 newNode.addChild(
                     convertNodeToList(childName, node[nextLevel][childName], level + 1, newNode))
         newNode
-    convertNodeToList 'root', tree, 0, null
+    convertNodeToList '千帆渡', tree, 0, null
 
 initializeScope = ($scope) ->
     # root, order, family, subfamily, genus, species.

@@ -304,6 +304,7 @@
       this.dragstart = __bind(this.dragstart, this);
       this.unpinAll = __bind(this.unpinAll, this);
       this.tick = __bind(this.tick, this);
+      this.click = __bind(this.click, this);
       this.mouseOverNode = __bind(this.mouseOverNode, this);
       this.mouseOffNode = __bind(this.mouseOffNode, this);
       this.mousedown = __bind(this.mousedown, this);
@@ -343,13 +344,17 @@
     };
 
     Viroscope.prototype.mouseOverNode = function(d) {
-      if (d.name !== 'root') {
+      if (d.name !== '千帆渡') {
         this.selectedNode = d;
         if (!this.$scope.infoNodeLocked) {
           this.$scope.infoNode = d;
           return this.$scope.$apply();
         }
       }
+    };
+
+    Viroscope.prototype.click = function(d) {
+      return this.selectedNode = d;
     };
 
     Viroscope.prototype.tick = function() {
@@ -447,14 +452,16 @@
       this.force.nodes(nodes).links(links);
       this.link = this.link.data(links);
       this.link.exit().remove();
-      this.link.enter().insert('line', '.node').attr('class', 'link');
+      this.link_a = this.link.enter().insert('line', '.node');
+      console.log(this.node);
+      this.link_a.attr('class', 'link');
       this.node = this.node.data(nodes, function(d) {
         return d.id;
       }).call(this.drag);
       this.node.exit().remove();
       nodeEnter = this.node.enter().append('g').attr('class', 'node');
-      nodeEnter.append('circle').attr('r', 6).on('mouseover', this.mouseOverNode).on('mouseout', this.mouseOffNode);
-      nodeEnter.append('text').attr('dy', '1.5em').text(function(d) {
+      nodeEnter.append('circle').attr('r', 6).on('click', this.click).on('mouseover', this.mouseOverNode).on('mouseout', this.mouseOffNode);
+      nodeEnter.append('text').attr('dy', '2.5em').text(function(d) {
         if (d.name === 'Unassigned') {
           return LEVELS[d.level] + ' not assigned';
         } else {
@@ -485,7 +492,7 @@
       }
       return newNode;
     };
-    return convertNodeToList('root', tree, 0, null);
+    return convertNodeToList('千帆渡', tree, 0, null);
   };
 
   initializeScope = function($scope) {
